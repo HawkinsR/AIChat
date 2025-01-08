@@ -1,1 +1,28 @@
-<p>chat works!</p>
+<div class="container">
+  <div class="row">
+      <br>
+      <div class="card">
+        <h1 class="card-header center text-primary">RevaChat</h1>
+        <div class="card-body">
+          <h3 class="card-title text-success center">A ChatGPT test bed</h3>
+          <div class="row">
+            <h3>Conversation History:</h3>
+          </div>
+          <div class="frame-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+            <div *ngFor="let item of chatConversation">
+              <div innerHTML="{{item.response}}" class="card-text padding" [ngClass]="item.cssClass">
+                <br>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div>
+            <h3>Prompt Window:</h3>
+            <textarea class="form-control-dark"  [(ngModel)]="promptText" placeholder="Start by asking what you are looking for" (keydown.enter)="checkResponse()"></textarea>
+            <br>
+            <button class="send-prompt" (click)="checkResponse()">Prompt</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
