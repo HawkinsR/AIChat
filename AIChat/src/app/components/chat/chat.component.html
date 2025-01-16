@@ -5,6 +5,11 @@
         <h1 class="card-header center text-primary">RevaChat</h1>
         <div class="card-body">
           <h3 class="card-title text-success center">A ChatGPT test bed</h3>
+          <br>
+          <input class="form-control-dark" type="password" placeholder="password" [(ngModel)]="promptPw">
+              <div *ngFor="let toast of toastService.toasts; let i = index">
+                <p> {{ toast }} </p> <button class="send-prompt" (click)="removeToast(i)">X</button>
+              </div>
           <div class="row">
             <h3>Conversation History:</h3>
           </div>
@@ -18,7 +23,7 @@
           <br>
           <div>
             <h3>Prompt Window:</h3>
-            <textarea class="form-control-dark"  [(ngModel)]="promptText" placeholder="Start by asking what you are looking for" (keydown.enter)="checkResponse()"></textarea>
+            <textarea class="form-control-dark"  [(ngModel)]="promptText" placeholder="Enter your prompt here..." (keydown.enter)="checkResponse()"></textarea>
             <br>
             <button class="send-prompt" (click)="checkResponse()">Prompt</button>
           </div>

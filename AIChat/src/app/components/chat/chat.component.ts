@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { OpenAI } from 'openai';
 import { environment } from './../../../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { ToastService } from './../../services/toast.service';
 
 @Component({
   selector: 'app-chat',
@@ -18,16 +19,21 @@ export class ChatComponent {
   messages: Array<any> = [];
   response!: any | undefined;
   promptText = '';
+  promptPw = '';
 
   showSpinner = false;
 
-  constructor() { }
+  constructor(public toastService: ToastService) { }
 
   ngOnInit(): void {
   }
 
   checkResponse() {
     this.pushChatContent(this.promptText, 'You', 'person');
+    if (this.promptPw != '250121AIUpskill') {
+      this.showToast();
+      return;
+    }
     this.invokeGPT();
   }
 
@@ -41,6 +47,7 @@ export class ChatComponent {
   }
 
   async invokeGPT() {
+
     if (this.promptText.length < 2)
       return;
     try {
@@ -83,5 +90,13 @@ export class ChatComponent {
         console.error(`Error with OpenAI API request: ${error.message}`);
       }
     }
+  }
+
+  showToast() {
+    this.toastService.add("Password Incorrect");
+  }
+
+  removeToast(index: number) {
+    this.toastService.remove(index);
   }
 }
