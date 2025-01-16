@@ -24,7 +24,7 @@ jobs:
         mkdir ./AIChat/src/environments
         echo "Creating environment file"
         touch ./AIChat/src/environments/environment.ts
-        echo ${{ secrets.ANGULAR_ENVIRONMENT }} >> ./AIChat/src/environments/environment.ts
+        echo "${{ secrets.ANGULAR_ENVIRONMENT }}" >> ./AIChat/src/environments/environment.ts
 
     - name: Docker Setup Buildx
       uses: docker/setup-buildx-action@v3.8.0
