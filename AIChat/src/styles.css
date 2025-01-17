@@ -1,5 +1,6 @@
 *{
-background-color: #333333;
+  background-color: #333333;
+  font-family: verdana;
 }
 
 h1 {
@@ -7,6 +8,10 @@ h1 {
 }
 
 h3 {
+  color: #ffffff;
+}
+
+h4 {
   color: #ffffff;
 }
 
@@ -26,7 +31,13 @@ a:hover {
   color: pink;
 }
 
+.nav-bar {
+  background-color: #3f3f3f;
+  margin: 5px;
+  border-radius: 15px;
+  padding: 5px;
 
+}
 .container{
   margin: 20px;
 }
@@ -70,6 +81,14 @@ a:hover {
   padding: 20px;
 }
 
+.options-control-dark {
+  margin: 5px;
+  color: #fff;
+  background-color: #333333;
+  border-color: #aaa;
+  border-radius: 15px;
+  padding: 10px;
+}
 .center {
   text-align: center;
 }
@@ -101,7 +120,7 @@ a:hover {
   text-align: left;
 }
 
-.responseStyle{
+.responseStyle {
   border: solid 0.2px blueviolet; padding: 2px;
 }
 

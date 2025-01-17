@@ -6,20 +6,23 @@ import { FormsModule } from '@angular/forms';
 import { ToastService } from './../../services/toast.service';
 
 @Component({
-  selector: 'app-chat',
+  selector: 'app-advanced-chat',
   standalone: true,
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css'],
+  templateUrl: './advanced-chat.component.html',
+  styleUrls: ['./advanced-chat.component.css'],
   imports: [ CommonModule, FormsModule ],
 })
 
-export class ChatComponent {
+export class AdvancedChatComponent {
   title = 'ChatGPT';
   chatConversation: Array<any> = [];
   messages: Array<any> = [];
   response!: any | undefined;
   promptText = '';
   promptPw = '';
+  promptTemp = 1;
+  pP = 0;
+  maxToken = 100;
 
   constructor(public toastService: ToastService) { }
 
@@ -57,11 +60,11 @@ export class ChatComponent {
       let requestData = {
         model: 'gpt-4o',
         messages: this.messages,
-        temperature: 1,
-        max_tokens: 100,
+        temperature: this.promptTemp,
+        max_tokens: this.maxToken,
         top_p: 1.0,
         frequency_penalty: 0.0,
-        presence_penalty: 0.0,
+        presence_penalty: this.pP,
         stream: false
       };
       this.promptText = '';

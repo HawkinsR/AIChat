@@ -10,7 +10,7 @@ export class ToastService {
     this.toasts.push(message);
   }
 
-  remove(index: number) {
-    this.toasts.splice(index, 1);
+  remove() {
+    this.toasts = [];
   }
 }
