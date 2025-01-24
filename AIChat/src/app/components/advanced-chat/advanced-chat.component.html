@@ -1,5 +1,5 @@
-<div class="container">
-  <h3 class="center">Advanced Chat</h3>
+<h3 class="center">Advanced Chat</h3>
+<div>
   <div class="chat-history">
     <h3>Conversation History:</h3>
     <div class="frame-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
@@ -9,24 +9,30 @@
         </div>
       </div>
     </div>
+    <div>
+      <label for="saveChat">Save Chat:</label>
+      <button class="send-prompt" id="saveChat" (click)="saveChat()">Save</button><br>
+    </div>
+    <div>
+      <label for="loadChat">Load Chat:</label>
+      <input class="file-input" type="file" id="loadChat" accept=".Revachat" (change)="loadChat($event)">
+    </div>
+  </div>
+  <div class="password-field">
+    <h3>Chat Password:</h3> <input class="form-control-dark" type="password" placeholder="password" [(ngModel)]="promptPw">
+    <div *ngFor="let toast of toastService.toasts; let i = index">
+      <p> {{ toast }} </p>
+    </div>
   </div>
   <div class="prompt-options">
     <h4>Prompt Temperature (0 - 2):</h4><input class="options-control-dark" type="number" min="0" max="2" step="0.01" [(ngModel)]="promptTemp">
     <h4>Presence Penalty (-2 - 2):</h4><input class="options-control-dark" type="number" min="-2" max="2" step="0.01" [(ngModel)]="pP">
     <h4>Max Tokens (0 - 200):</h4><input class="options-control-dark" type="number" min="0" max="200" [(ngModel)]="maxToken">
   </div>
-  <div class="password-field">
-    <h3>Chat Password:</h3>
-    <input class="form-control-dark" type="password" placeholder="password" [(ngModel)]="promptPw">
-    <div *ngFor="let toast of toastService.toasts; let i = index">
-      <p> {{ toast }} </p>
-    </div>
-  </div>
-  <div class="prompt-window">
+  <div>
     <h3>Prompt Window:</h3>
-    <textarea class="form-control-dark"  [(ngModel)]="promptText" placeholder="Enter your prompt here..." (keydown.enter)="checkResponse()"></textarea>
+    <textarea class="prompt-window" class="form-control-dark"  [(ngModel)]="promptText" placeholder="Enter your prompt here..." (keydown.enter)="checkResponse()"></textarea>
     <br>
     <button class="send-prompt" (click)="checkResponse()">Prompt</button>
   </div>
 </div>
-  

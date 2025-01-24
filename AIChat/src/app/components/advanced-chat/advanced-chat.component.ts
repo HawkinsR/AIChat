@@ -4,6 +4,7 @@ import { OpenAI } from 'openai';
 import { environment } from '../../../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from './../../services/toast.service';
+import { Chat } from './../../chat';
 
 @Component({
   selector: 'app-advanced-chat',
@@ -15,7 +16,7 @@ import { ToastService } from './../../services/toast.service';
 
 export class AdvancedChatComponent {
   title = 'ChatGPT';
-  chatConversation: Array<any> = [];
+  chatConversation: Array<Chat> = [];
   messages: Array<any> = [];
   response!: any | undefined;
   promptText = '';
@@ -30,7 +31,7 @@ export class AdvancedChatComponent {
   }
 
   checkResponse() {
-    this.pushChatContent(this.promptText,  'person', 0);
+    this.pushChatContent(this.promptText,  'user', 0);
     if (this.promptPw != '250121AIUpskill') {
       this.showToast();
       this.promptText = '';
@@ -93,5 +94,43 @@ export class AdvancedChatComponent {
 
   removeToast() {
     this.toastService.remove();
+  }
+
+  saveChat(){
+    let fileName = Date.now() + ".Revachat";
+    let file = new Blob([JSON.stringify(this.chatConversation)], { type: "text/plain" });
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(file);
+    link.download = fileName;
+    link.click();
+    link.remove();
+  }
+
+  loadChat(event: any) {
+    let fileContent: any;
+    var file = event.target.files[0];
+
+    if(file) {
+      var Reader = new FileReader();
+      Reader.readAsText(file, "text/plain");
+
+      Reader.onload = e => {
+        fileContent = Reader.result;
+        let tmpChat = JSON.parse(fileContent);
+        for (let chat of tmpChat){
+          this.pushChatContent(chat.response, chat.cssClass, chat.responseTime);
+          if(chat.cssClass == "user"){
+            this.messages.push({"role": chat.cssClass, "content": chat.response});
+          }
+        }
+        console.log(this.chatConversation);
+        console.log(this.messages);
+        return;
+      }
+
+      Reader.onerror = function(e) {
+        fileContent = "error";
+      }
+    }
   }
 }

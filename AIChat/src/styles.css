@@ -3,22 +3,6 @@
   font-family: verdana;
 }
 
-h1 {
-  color: #ffffff;
-}
-
-h3 {
-  color: #ffffff;
-}
-
-h4 {
-  color: #ffffff;
-}
-
-p {
-  color: #ffffff;
-}
-
 a:link {
   color: #aaaaaa;
 }
@@ -31,28 +15,56 @@ a:hover {
   color: pink;
 }
 
-.nav-bar {
-  background-color: #3f3f3f;
-  margin: 5px;
-  border-radius: 15px;
-  padding: 5px;
-
-}
-.container{
-  margin: 20px;
+.bot {
+  color: #cccccc;
+  text-align: left;
 }
 
-.has-error{
-  border-color: #ff0000;
-  border-style: solid;
+.chat-history {
+  flex-basis: auto;
+  flex-grow: 3;
+  align-self: center;
+}
+
+.center {
+  text-align: center;
 }
 
 .cursor {
   cursor: pointer;
 }
 
+.file-input {
+  height: 40px;
+  color: #aaaaaa;
+  border-color: #333333;
+  border-radius: 5px;
+  position: relative;
+  top: 0px;
+  left: 20px;
+}
+
+.form-control-dark {
+  margin: 5px;
+  color: #fff;
+  background-color: #333333;
+  border-color: #aaa;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.form-control-dark:focus {
+  margin: 5px;
+  color: #fff;
+  background-color: #383838;
+  border-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+  padding: 20px;
+}
+
 .frame-box {
-  margin: 20px;
+  margin: 5px;
   border: solid 2px;
   border-color: #aaa;
   padding: 20px;
@@ -62,23 +74,38 @@ a:hover {
   overflow-y: auto;
 }
 
-.form-control-dark {
-  margin: 20px;
-  color: #fff;
-  background-color: #333333;
-  border-color: #aaa;
-  border-radius: 25px;
-  padding: 20px;
+h1 {
+  color: #ffffff;
 }
 
-.form-control-dark:focus {
-  margin: 20px;
-  color: #fff;
-  background-color: #383838;
-  border-color: #fff;
-  border-radius: 25px;
-  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
-  padding: 20px;
+h3 {
+  color: #ffffff;
+}
+
+h4 {
+  color: #ffffff;
+}
+
+.has-error{
+  border-color: #ff0000;
+  border-style: solid;
+}
+
+.item {
+
+}
+
+label {
+  font-color: #ffffff;
+  color: #ffffff;
+}
+
+.nav-bar {
+  background-color: #3f3f3f;
+  margin: 5px;
+  border-radius: 15px;
+  padding: 5px;
+
 }
 
 .options-control-dark {
@@ -89,8 +116,32 @@ a:hover {
   border-radius: 15px;
   padding: 10px;
 }
-.center {
-  text-align: center;
+
+p {
+  color: #ffffff;
+}
+
+.prompt-options{
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+textarea {
+  margin: 5px;
+  border: solid 2px;
+  border-color: #aaa;
+  padding: 20px;
+  border-radius: 25px;
+  min-height: 100px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.responseStyle {
+  border: solid 0.2px blueviolet; padding: 2px;
 }
 
 .send-prompt {
@@ -110,110 +161,7 @@ a:hover {
   box-shadow: 0 12px 16px - rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.person {
+.user {
   color: #ffffff;
   text-align: right;
-}
-
-.bot {
-  color: #cccccc;
-  text-align: left;
-}
-
-.responseStyle {
-  border: solid 0.2px blueviolet; padding: 2px;
-}
-
-.lds-spinner {
-  color: official;
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-
-.lds-spinner div {
-  transform-origin: 40px 40px;
-  animation: lds-spinner 1.2s linear infinite;
-}
-
-.lds-spinner div:after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 3px;
-  left: 37px;
-  width: 6px;
-  height: 18px;
-  border-radius: 20%;
-  background: #fff;
-}
-
-.lds-spinner div:nth-child(1) {
-  transform: rotate(0deg);
-  animation-delay: -1.1s;
-}
-
-.lds-spinner div:nth-child(2) {
-  transform: rotate(30deg);
-  animation-delay: -1s;
-}
-
-.lds-spinner div:nth-child(3) {
-  transform: rotate(60deg);
-  animation-delay: -0.9s;
-}
-
-.lds-spinner div:nth-child(4) {
-  transform: rotate(90deg);
-  animation-delay: -0.8s;
-}
-
-.lds-spinner div:nth-child(5) {
-  transform: rotate(120deg);
-  animation-delay: -0.7s;
-}
-
-.lds-spinner div:nth-child(6) {
-  transform: rotate(150deg);
-  animation-delay: -0.6s;
-}
-
-.lds-spinner div:nth-child(7) {
-  transform: rotate(180deg);
-  animation-delay: -0.5s;
-}
-
-.lds-spinner div:nth-child(8) {
-  transform: rotate(210deg);
-  animation-delay: -0.4s;
-}
-
-.lds-spinner div:nth-child(9) {
-  transform: rotate(240deg);
-  animation-delay: -0.3s;
-}
-
-.lds-spinner div:nth-child(10) {
-  transform: rotate(270deg);
-  animation-delay: -0.2s;
-}
-
-.lds-spinner div:nth-child(11) {
-  transform: rotate(300deg);
-  animation-delay: -0.1s;
-}
-
-.lds-spinner div:nth-child(12) {
-  transform: rotate(330deg);
-  animation-delay: 0s;
-}
-
-@keyframes lds-spinner {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
