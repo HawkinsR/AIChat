@@ -27,7 +27,7 @@ export class ChatComponent {
   }
 
   checkResponse() {
-    this.pushChatContent(this.promptText,  'person', 0);
+    this.pushChatContent(this.promptText,  'user', 0);
     if (this.promptPw != '250121AIUpskill') {
       this.showToast();
       this.promptText = '';

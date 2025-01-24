@@ -19,7 +19,8 @@
     </div>
   </div>
   <div class="password-field">
-    <h3>Chat Password:</h3> <input class="form-control-dark" type="password" placeholder="password" [(ngModel)]="promptPw">
+    <h3>Chat Password:</h3>
+    <input class="form-control-dark" type="password" placeholder="password" [(ngModel)]="promptPw">
     <div *ngFor="let toast of toastService.toasts; let i = index">
       <p> {{ toast }} </p>
     </div>
