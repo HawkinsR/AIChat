@@ -1,0 +1,26 @@
+<div class="container">
+  <h3 class="center">Vision Example</h3>
+  <div class="password-field">
+    <h3>Chat Password:</h3>
+    <input class="form-control-dark" type="password" placeholder="password" [(ngModel)]="promptPw">
+    <div *ngFor="let toast of toastService.toasts; let i = index">
+      <p> {{ toast }} </p>
+    </div>
+  </div>
+  <div class="prompt-window">
+    <h3>Prompt Window:</h3>
+    <textarea class="form-control-dark"  [(ngModel)]="promptText" placeholder="Enter image url here.." (keydown.enter)="checkResponse()"></textarea>
+    <br>
+    <button class="send-prompt" (click)="checkResponse()">Prompt</button>
+  </div>
+  <div class="chat-history">
+    <h3>Image and analysis:</h3>
+    <img ngSrc="{{ this.promptText }}">
+    <div class="frame-box" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+      <div *ngFor="let item of chatConversation">
+        <div innerHTML="{{ item.responseTime }}ms: {{ item.response }}" class="card-text padding" [ngClass]="item.cssClass">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
