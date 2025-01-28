@@ -22,19 +22,16 @@ export const routes: Routes = [
     path: 'chat',
     component: ChatComponent,
     title: 'Chat',
-    canActivate: [passwordGuard],
   },
   {
     path: 'advanced',
     component: AdvancedChatComponent,
     title: 'AdvChat',
-    canActivate: [passwordGuard],
   },
   {
     path: 'vision',
     component: VisionComponent,
     title: 'Vision',
-    canActivate: [passwordGuard],
   },
   {
     path: '**',
