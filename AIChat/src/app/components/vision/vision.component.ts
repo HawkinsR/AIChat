@@ -72,7 +72,7 @@ export class VisionComponent {
         model: 'gpt-4o',
         messages: this.messages,
         temperature: 1,
-        max_tokens: 100,
+        max_tokens: 2500,
         top_p: 1.0,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
