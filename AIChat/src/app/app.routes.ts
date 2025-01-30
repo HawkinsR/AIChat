@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 
+import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { AdvancedChatComponent } from './components/advanced-chat/advanced-chat.component';
 import { VisionComponent } from './components/vision/vision.component';
-import { passwordGuard } from './password.guard';
+import { PasswordGuard } from './password.guard';
 
 export const routes: Routes = [
   {

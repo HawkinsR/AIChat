@@ -27,9 +27,6 @@ export class AdvancedChatComponent {
 
   constructor(public toastService: ToastService) { }
 
-  ngOnInit(): void {
-  }
-
   checkResponse() {
     this.pushChatContent(this.promptText,  'user', 0);
     if (this.promptPw != '250121AIUpskill') {
@@ -54,7 +51,7 @@ export class AdvancedChatComponent {
     if (this.promptText.length < 2)
       return;
     try {
-      var responseTS = Date.now();
+      let responseTS = Date.now();
       this.response = undefined;
       this.messages.push({"role": "user", "content": this.promptText});
       let openai = new OpenAI({apiKey: environment.apiKey, dangerouslyAllowBrowser: true});
@@ -72,8 +69,8 @@ export class AdvancedChatComponent {
       let apiResponse =  await openai.chat.completions.create(requestData);
       this.response = apiResponse;
       
-      var responseTF = Date.now();
-      var responseTime = responseTF - responseTS;
+      let responseTF = Date.now();
+      let responseTime = responseTF - responseTS;
       
       this.pushChatContent(this.response.choices[0].message.content.trim(), 'bot', responseTime);
     }
@@ -108,10 +105,10 @@ export class AdvancedChatComponent {
 
   loadChat(event: any) {
     let fileContent: any;
-    var file = event.target.files[0];
+    let file = event.target.files[0];
 
     if(file) {
-      var Reader = new FileReader();
+      let Reader = new FileReader();
       Reader.readAsText(file, "text/plain");
 
       Reader.onload = e => {
@@ -123,9 +120,6 @@ export class AdvancedChatComponent {
             this.messages.push({"role": chat.cssClass, "content": chat.response});
           }
         }
-        console.log(this.chatConversation);
-        console.log(this.messages);
-        return;
       }
 
       Reader.onerror = function(e) {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-
+import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 
 @Component({
@@ -10,6 +9,7 @@ import { NavComponent } from './components/nav/nav.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'AIChat';
 }

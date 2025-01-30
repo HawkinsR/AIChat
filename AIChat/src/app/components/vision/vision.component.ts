@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { OpenAI } from 'openai';
 import { environment } from '../../../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from './../../services/toast.service';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-vision',
@@ -38,9 +37,6 @@ export class VisionComponent {
 
   constructor(public toastService: ToastService) { }
 
-  ngOnInit(): void {
-  }
-
   checkResponse() {
     this.pushChatContent(this.promptText,  'user', 0);
     if (this.promptPw != '250121AIUpskill') {
@@ -64,7 +60,7 @@ export class VisionComponent {
     if (this.promptText.length < 2)
       return;
     try {
-      var responseTS = Date.now();
+      let responseTS = Date.now();
       this.response = undefined;
       this.messages[0].content[1].image_url.url = this.promptText;
       let openai = new OpenAI({apiKey: environment.apiKey, dangerouslyAllowBrowser: true});
@@ -81,8 +77,8 @@ export class VisionComponent {
       let apiResponse =  await openai.chat.completions.create(requestData);
       this.response = apiResponse;
 
-      var responseTF = Date.now();
-      var responseTime = responseTF - responseTS;
+      let responseTF = Date.now();
+      let responseTime = responseTF - responseTS;
 
       this.pushChatContent(this.response.choices[0].message.content.trim(), 'bot', responseTime);
     }

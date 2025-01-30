@@ -23,9 +23,6 @@ export class ChatComponent {
 
   constructor(public toastService: ToastService) { }
 
-  ngOnInit(): void {
-  }
-
   checkResponse() {
     this.pushChatContent(this.promptText,  'user', 0);
     if (this.promptPw != '250121AIUpskill') {
@@ -50,7 +47,7 @@ export class ChatComponent {
     if (this.promptText.length < 2)
       return;
     try {
-      var responseTS = Date.now();
+      let responseTS = Date.now();
       this.response = undefined;
       this.messages.push({"role": "user", "content": this.promptText});
       let openai = new OpenAI({apiKey: environment.apiKey, dangerouslyAllowBrowser: true});
@@ -68,8 +65,8 @@ export class ChatComponent {
       let apiResponse =  await openai.chat.completions.create(requestData);
       this.response = apiResponse;
       
-      var responseTF = Date.now();
-      var responseTime = responseTF - responseTS;
+      let responseTF = Date.now();
+      let responseTime = responseTF - responseTS;
       
       this.pushChatContent(this.response.choices[0].message.content.trim(), 'bot', responseTime);
     }
